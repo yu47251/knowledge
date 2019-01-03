@@ -1,3 +1,3 @@
 # 知识点整理
 
-- [JVM](超链接地址 "超链接title")
+- [JVM](https://github.com/WaitingAloneU/knowledge/blob/master/JVM/JVM.md "jvm相关知识点")
