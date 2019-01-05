@@ -4,13 +4,17 @@
 
 - [COLLECTION](https://github.com/WaitingAloneU/knowledge/blob/master/COLLECTION/Collection.md "Collection相关知识点")
 
+- [MULTITHREAD](https://github.com/WaitingAloneU/knowledge/blob/master/MULTITHREAD/MultiThread.md "多线程相关知识点")
+
+- [I/O](https://github.com/WaitingAloneU/knowledge/blob/master/IO/IO.md "I/O相关知识点")
+
 - [MAVEN](https://github.com/WaitingAloneU/knowledge/blob/master/MAVEN/Maven.md "Maven相关知识点")
 
 - [DOCKER](https://github.com/WaitingAloneU/knowledge/blob/master/DOCKER/Docker.md "Docker相关知识点")
 
 - [LINUX](https://github.com/WaitingAloneU/knowledge/blob/master/LINUX/CentOS7.md "CentOS7相关知识点")
 
-- [DESIGN PATTERN](https://github.com/WaitingAloneU/knowledge/blob/master/DESIGN/Design.md "Design相关知识点")
+- [DESIGN PATTERN](https://github.com/WaitingAloneU/knowledge/blob/master/DESIGN/Design.md "Design Pattern相关知识点")
 
 - [MONGODB](https://github.com/WaitingAloneU/knowledge/blob/master/MONGODB/MongoDB.md "MongoDB相关知识点")
 
@@ -25,3 +29,13 @@
 - [MYBATIS](https://github.com/WaitingAloneU/knowledge/blob/master/MYBATIS/MyBatis.md "MyBatis相关知识点")
 
 - [JWT](https://github.com/WaitingAloneU/knowledge/blob/master/JWT/jwt.md "JWT相关知识点")
+
+- [ZOOKEEPER](https://github.com/WaitingAloneU/knowledge/blob/master/ZOOKEEPER/ZooKeeper.md "ZooKeeper相关知识点")
+
+- [RABBITMQ](https://github.com/WaitingAloneU/knowledge/blob/master/RABBITMQ/RabbitMQ.md "JWT相关知识点")
+
+- [支付宝](https://github.com/WaitingAloneU/knowledge/blob/master/ALIPAY/AliPay.md "支付宝相关知识点")
+
+- [微信](https://github.com/WaitingAloneU/knowledge/blob/master/WECHAT/WeChat.md "微信相关知识点")
+
+- [阿里云](https://github.com/WaitingAloneU/knowledge/blob/master/ALIYUN/AliYun.md "阿里云相关知识点")
