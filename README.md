@@ -2,7 +2,7 @@
 
 - [JVM](https://github.com/WaitingAloneU/knowledge/blob/master/JVM/JVM.md "jvm相关知识点")
 
-- [COLLECTION](https://github.com/WaitingAloneU/knowledge/blob/master/COLLECTION/Collection.md "Collection相关知识点")
+- [DATASTRUCTURE](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
 
 - [MULTITHREAD](https://github.com/WaitingAloneU/knowledge/blob/master/MULTITHREAD/MultiThread.md "多线程相关知识点")
 
