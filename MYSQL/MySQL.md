@@ -58,8 +58,22 @@ show global status like '%slow_queries%';
 ```sql
     例如： index（a,b,c）
     select a, b, c from t where b=0 and c=1 // 不会使用索引
-    select a, b, c from t where a=0 and c=1 // 不会使用索引
+    select a, b, c from t where a=0 and c=1 
+    // 上面这个SQL会使用索引，但是只用到了一个字段a， c没有用到索引，
+    // 在a=0的结果里面进行where扫描，过滤出来c=1的数据
     select a, b, c from t where a=0 and b=1 and c=1 // 使用索引
     select a, b, c from t where a=0 and b=1 // 会使用索引
     select a, b, c from t where a=0 // 会使用索引
 ```
+- 查询条件中含有函数或表达式，mysql不会为其使用索引
+```sql
+SELECT * FROM t WHERE a='10001' AND left(b, 1)='c';
+等价于
+SELECT * FROM t WHERE a='10001' AND b like 'c%';
+
+第一种不会使用索引，第二种会使用索引
+```
+
+## SQL 优化
+- 精确匹配： 这里精确匹配指“=”或“IN”匹配
+- 索引对顺序是敏感的，但是由于MySQL的查询优化器会自动调整where子句的条件顺序以使用适合的索引
