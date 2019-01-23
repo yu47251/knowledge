@@ -1,5 +1,5 @@
 # 集合知识点
-### Collection结构图
+## Collection结构图
 ```mermaid
 graph TD
  Collection --> Set
@@ -101,7 +101,7 @@ for (Integer integ:list)
 - Vector实际上是通过一个数组去保存数据的。当我们构造Vecotr时；若使用默认构造函数，则Vector的默认容量大小是10。
 - 当Vector容量不足以容纳全部元素时，Vector的容量会增加。若容量增加系数 >0，则将容量的值增加“容量增加系数”；否则，将容量大小增加一倍。
 - Vector的克隆函数，即是将全部元素克隆到一个数组中。
-### Map结构图
+## Map结构图
 ```mermaid
 graph TD
  Map --> HashMap
@@ -110,6 +110,8 @@ graph TD
  Map --> HashTable
  HashTable --> Properties
 ```
+### HashMap 实现过程
+
 
 ### 其他类结构图
 ```mermaid
