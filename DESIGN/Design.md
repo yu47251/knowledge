@@ -89,3 +89,5 @@ public class Singleton{
 ## 依赖倒置原则
 ## 接口隔离原则
 ## 迪米特原则
+
+# 领域驱动设计(DDD:Domain-Driven Design)
