@@ -8,9 +8,7 @@ Executors.newSingleThreadExecutor();
 // 实现过程：固定核心线程数和最大线程数为1，
 public static ExecutorService newSingleThreadExecutor() {
     return new FinalizableDelegatedExecutorService
-        (new ThreadPoolExecutor(1, 1,
-                                0L, TimeUnit.MILLISECONDS,
-                                new LinkedBlockingQueue<Runnable>()));
+        (new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>()));
 }
 ```
 ### 计划线程池
@@ -25,8 +23,7 @@ public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize) 
 }
 //ScheduledThreadPoolExecutor 继承 ThreadPoolExecutor
 public ScheduledThreadPoolExecutor(int corePoolSize) {
-    super(corePoolSize, Integer.MAX_VALUE, 0, NANOSECONDS,
-            new DelayedWorkQueue());
+    super(corePoolSize, Integer.MAX_VALUE, 0, NANOSECONDS, new DelayedWorkQueue());
 }
 ```
 ### 缓存线程池
@@ -36,8 +33,7 @@ public ScheduledThreadPoolExecutor(int corePoolSize) {
 Executors.newCachedThreadPool();
 // 设置核心线程数为0，最大线程数为int最大值：2147483647
 public static ExecutorService newCachedThreadPool() {
-    return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
-                                    60L, TimeUnit.SECONDS,
+    return new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
                                     new SynchronousQueue<Runnable>());
 }
 ```
@@ -46,8 +42,7 @@ public static ExecutorService newCachedThreadPool() {
 // 创建方式：
 Executors.newFixedThreadPool(6);
 public static ExecutorService newFixedThreadPool(int nThreads) {
-    return new ThreadPoolExecutor(nThreads, nThreads,
-                                    0L, TimeUnit.MILLISECONDS,
+    return new ThreadPoolExecutor(nThreads, nThreads, 0L, TimeUnit.MILLISECONDS,
                                     new LinkedBlockingQueue<Runnable>());
 }
 ```
@@ -69,7 +64,15 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
 }
 ```
 - 以上四种构造器，前三种最终都是调用的第四种。 只是设置了默认的ThreadFactory和RejectedExecutionHandler
-
+```
+- corePoolSize: 核心线程数
+- maximumPoolSize: 最大线程数
+- keepAliveTime：线程存活时间
+- unit：线程存活时间的单位
+- workQueue：队列
+- threadFactory：线程工厂
+- handler：表示当拒绝处理任务时的策略
+```
 - ThreadFactory：线程工厂， 创建线程，源码中使用的默认线程工厂为：Executors.DefaultThreadFactory
 ```java
 this(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, Executors.defaultThreadFactory(), defaultHandler);
@@ -84,3 +87,4 @@ ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务
 ## 线程安全
 ### volatile 关键字
 #### volatile原理
+### Synchronized 关键字

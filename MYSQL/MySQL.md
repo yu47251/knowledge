@@ -56,33 +56,46 @@ UNCACHEABLE SUBQUERY(一个子查询的结果不能被缓存，必须重新评�
 ```
 - table: 显示这一行的数据是关于哪张表的，有时不是真实的表名字,看到的是derivedx(x是个数字,我的理解是第几步执行的结果)
 
-- type(重要)： 表示MySQL在表中找到所需行的方式，又称“访问类型”。常用的类型有： ALL, index,  range, ref, eq_ref, const, system, NULL（从左到右，性能从差到好）
-```
-ALL：Full Table Scan， MySQL将遍历全表以找到匹配的行
-index: Full Index Scan，index与ALL区别为index类型只遍历索引树
-range: 只检索给定范围的行，使用一个索引来选择行
-ref: 表示上述表的连接匹配条件，即哪些列或常量被用于查找索引列上的值
-eq_ref: 类似ref，区别就在使用的索引是唯一索引，对于每个索引键值，表中只有一条记录匹配，简单来说，就是多表连接中使用primary key或者 unique key作为关联条件
-const、system: 当MySQL对查询某部分进行优化，并转换为一个常量时，使用这些类型访问。如将主键置于where列表中，MySQL就能将该查询转换为一个常量,system是const类型的特例，当查询的表只有一行的情况下，使用system
-NULL: MySQL在优化过程中分解语句，执行时甚至不用访问表或索引，例如从一个索引列里选取最小值可以通过单独索引查找完成。
-```
+- type(重要)： 表示MySQL在表中找到所需行的方式，又称“访问类型”。结果值从好到坏依次是：
+system > const > eq_ref > ref > fulltext > ref_or_null > index_merge > unique_subquery > index_subquery > range > index > ALL
 
-- possible_keys：可能会用到的索引列表，并不代表该SQL会用。
+一般来说，得保证查询至少达到range级别，最好能达到ref，否则就可能会出现性能问题。
 ```
+- ALL：Full Table Scan， MySQL将遍历全表以找到匹配的行
+- index: Full Index Scan，index与ALL区别为index类型只遍历索引树
+- range: 只检索给定范围的行，使用一个索引来选择行
+- ref: 表示上述表的连接匹配条件，即哪些列或常量被用于查找索引列上的值
+- eq_ref: 类似ref，区别就在使用的索引是唯一索引，对于每个索引键值，表中只有一条记录匹配，简单来说，就是多表连接中使用primary key或者 unique key作为关联条件
+- const、system: 当MySQL对查询某部分进行优化，并转换为一个常量时，使用这些类型访问。如将主键置于where列表中，MySQL就能将该查询转换为一个常量,system是const类型的特例，当查询的表只有一行的情况下，使用system
+- NULL: MySQL在优化过程中分解语句，执行时甚至不用访问表或索引，例如从一个索引列里选取最小值可以通过单独索引查找完成。
 ```
-
+- possible_keys：可能会用到的索引列表，并不代表该SQL已经用了。
+- key：显示实际决定使用的索引。如果没有选择索引，就是NULL
+- key_len：显示实际决定使用的索引长度。如果键是NULL，则长度为NULL。使用的索引的长度。在不损失精确性的情况下，长度越短越好
+- ref：显示使用哪个列或常数与key一起从表中选择行。
+- rows：显示MySQL认为它执行查询时必须检查的行数。
+- Extra：包含MySQL解决查询的详细信息，也是关键参考项之一。
 
 ## 索引 index
 
 ### 聚集索引
 - InnoDB引擎是聚集索引，数据文件和索引文件在一起，为同一个文件
+```
+create table sys_config(···) 会创建一个文件sys_config.idb
+```
 - InnoDB的表，必须有主键，如果没有主键，找唯一的列，如果没有唯一的列，会创建一个隐含字段作为主键，该字段为6个字节，bigint
 - InnoDB的所有辅助索引都引用主键作为data域
 - 所有的叶子节点就是数据行
 - 一个表中只能有一个聚集索引，一般为主键
 
 ### 非聚集索引
-- myisam引擎是非聚集索引，数据文件跟索引文件分开。
+- myisam引擎是非聚集索引，数据文件跟索引文件分开（mysql8.0不一样，以8.0以前版本为例）。
+```
+create table sys_config(···) 会创建3个文件， 
+sys_config.MYI索引文件, 
+sys_config.MYD数据文件，
+sys_config.frm表结构文件
+```
 - 除了聚集索引，都是非聚集索引， 分成普通索引，唯一索引，全文索引
 - 非聚集索引的二次查询问题
 ```sql
@@ -103,6 +116,13 @@ NULL: MySQL在优化过程中分解语句，执行时甚至不用访问表或索
     select a, b, c from t where a=0 and b=1 and c=1 // 使用索引
     select a, b, c from t where a=0 and b=1 // 会使用索引
     select a, b, c from t where a=0 // 会使用索引
+```
+- mysql会自动优化where后面的查询条件的顺序，
+```sql
+    例如： index（a,b,c）
+    select a, b, c from t where b=0 and a=1 
+    select a, b, c from t where a=0 and b=1 
+    // 这两个SQL是一样的，mysql的执行器会把第一个变成第二个
 ```
 - 查询条件中含有函数或表达式，mysql不会为其使用索引
 ```sql
@@ -129,3 +149,13 @@ SELECT * FROM employees  USE INDEX(idx_first_name, idx_first_last_name) where fi
 ```sql
 SELECT * FROM employees IGNORE INDEX (priority) ...
 ```
+
+## 事务
+### 特性
+- 原子性（Atomicity）
+```
+在同一个事务中执行的多个更新操作，要么都成功，只要有一个失败的，所有的成功都需要失败，回滚。
+```
+- 一致性（Consistency）
+- 隔离性（Isolation）
+- 持久性（Durability）
