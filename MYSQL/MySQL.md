@@ -75,7 +75,32 @@ system > const > eq_ref > ref > fulltext > ref_or_null > index_merge > unique_su
 - ref：显示使用哪个列或常数与key一起从表中选择行。
 - rows：显示MySQL认为它执行查询时必须检查的行数。
 - Extra：包含MySQL解决查询的详细信息，也是关键参考项之一。
+```
+Distinct
+一旦MYSQL找到了与行相联合匹配的行，就不再搜索了
 
+Not exists
+MYSQL 优化了LEFT JOIN，一旦它找到了匹配LEFT JOIN标准的行，
+
+就不再搜索了
+
+Range checked for each
+
+Record（index map:#）
+没有找到理想的索引，因此对于从前面表中来的每一 个行组合，MYSQL检查使用哪个索引，并用它来从表中返回行。这是使用索引的最慢的连接之一
+
+Using filesort
+看 到这个的时候，查询就需要优化了。MYSQL需要进行额外的步骤来发现如何对返回的行排序。它根据连接类型以及存储排序键值和匹配条件的全部行的行指针来 排序全部行
+
+Using index
+列数据是从仅仅使用了索引中的信息而没有读取实际的行动的表返回的，这发生在对表 的全部的请求列都是同一个索引的部分的时候
+
+Using temporary
+看到这个的时候，查询需要优化了。这 里，MYSQL需要创建一个临时表来存储结果，这通常发生在对不同的列集进行ORDER BY上，而不是GROUP BY上
+
+Using where
+使用了WHERE从句来限制哪些行将与下一张表匹配或者是返回给用户。如果不想返回表中的全部行，并且连接类型ALL或index， 这就会发生，或者是查询有问题
+```
 ## 索引 index
 
 ### 聚集索引

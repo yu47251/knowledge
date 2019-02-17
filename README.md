@@ -32,6 +32,8 @@
 
 - [ZOOKEEPER](https://github.com/WaitingAloneU/knowledge/blob/master/ZOOKEEPER/ZooKeeper.md "ZooKeeper相关知识点")
 
+- [KAFKA](https://github.com/WaitingAloneU/knowledge/blob/master/KAFKA/Kafka.md "KAFKA相关知识点")
+
 - [RABBITMQ](https://github.com/WaitingAloneU/knowledge/blob/master/RABBITMQ/RabbitMQ.md "JWT相关知识点")
 
 - [支付宝](https://github.com/WaitingAloneU/knowledge/blob/master/ALIPAY/AliPay.md "支付宝相关知识点")
