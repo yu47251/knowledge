@@ -221,6 +221,14 @@ SELECT * FROM employees IGNORE INDEX (priority) ...
 - 执行命令：set session transaction isolation level repeatable read;(当前session)
 ```
 - 幻读：系统管理员A将数据库中所有学生的成绩从具体分数改为ABCDE等级，但是系统管理员B就在这个时候插入了一条具体分数的记录，当系统管理员A改结束后发现还有一条记录没有改过来，就好像发生了幻觉一样，这就叫幻读。
+```
+例：
+事务1：查询有5个账户
+事务2：提交insert一个账户
+事务1：查询有6个账户
+
+两次查询的结果不一样
+```
 
 注：不可重复读的和幻读很容易混淆，不可重复读侧重于修改，幻读侧重于新增或删除。解决不可重复读的问题只需锁住满足条件的行，解决幻读需要锁表
 
@@ -244,3 +252,4 @@ mysql> select @@transaction_isolation;
 | 可重复读（repeatable-read）  | 否   | 否         | 是   |
 | 串行化（serializable）       | 否   | 否         | 否   |
 
+### 锁
