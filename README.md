@@ -1,10 +1,10 @@
 # 知识点整理
 
-- [JVM](https://github.com/WaitingAloneU/knowledge/blob/master/JVM/JVM.md "jvm相关知识点")
+- [JVM(GC，内存模型)](https://github.com/WaitingAloneU/knowledge/blob/master/JVM/JVM.md "jvm相关知识点")
 
-- [DATASTRUCTURE](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
+- [DATASTRUCTURE(ArrayList, LinkedList, vector)](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
 
-- [MULTITHREAD](https://github.com/WaitingAloneU/knowledge/blob/master/MULTITHREAD/MultiThread.md "多线程相关知识点")
+- [MULTITHREAD(线程池，volitale，synchronized)](https://github.com/WaitingAloneU/knowledge/blob/master/MULTITHREAD/MultiThread.md "多线程相关知识点")
 
 - [I/O](https://github.com/WaitingAloneU/knowledge/blob/master/IO/IO.md "I/O相关知识点")
 
@@ -14,7 +14,7 @@
 
 - [LINUX](https://github.com/WaitingAloneU/knowledge/blob/master/LINUX/CentOS7.md "CentOS7相关知识点")
 
-- [DESIGN PATTERN](https://github.com/WaitingAloneU/knowledge/blob/master/DESIGN/Design.md "Design Pattern相关知识点")
+- [DESIGN PATTERN(设计原则，单例)](https://github.com/WaitingAloneU/knowledge/blob/master/DESIGN/Design.md "Design Pattern相关知识点")
 
 - [MONGODB](https://github.com/WaitingAloneU/knowledge/blob/master/MONGODB/MongoDB.md "MongoDB相关知识点")
 
