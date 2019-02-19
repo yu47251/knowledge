@@ -20,7 +20,7 @@
 
 - [REDIS](https://github.com/WaitingAloneU/knowledge/blob/master/REDIS/Redis.md "Redis相关知识点")
 
-- [MYSQL](https://github.com/WaitingAloneU/knowledge/blob/master/MYSQL/MySQL.md "MYSQL相关知识点")
+- [MYSQL(索引原理，锁，事务隔离级别，事务特性，SQL优化，EXPLAIN)](https://github.com/WaitingAloneU/knowledge/blob/master/MYSQL/MySQL.md "MYSQL相关知识点")
 
 - [TOMCAT](https://github.com/WaitingAloneU/knowledge/blob/master/TOMCAT/Tomcat.md "Tomcat相关知识点")
 
