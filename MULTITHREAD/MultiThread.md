@@ -130,5 +130,12 @@ CPU-->>CPU:计算i+1
 CPU-->>CPU高速缓存:结果写到cpu高速缓存
 CPU高速缓存-->>主存:结果写到主存
 ```
+```mermaid
+graph TD;
+A-->B;
+A-->C;
+B-->D;
+C-->D;
+```
 
 ### Synchronized 关键字
