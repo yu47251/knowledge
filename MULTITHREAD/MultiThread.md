@@ -124,8 +124,11 @@ doSomethingwithconfig(context);
 #### volatile原理
 以i = i + 1为例：下图为不加volatile关键字的执行逻辑，此逻辑在多线程环境中，会存在一定的问题。比如多个线程读取的时候都读取的是i，但是写的时候也就都写得是i+1。并没有达到预期的效果。
 ```mermind
-graph TD;
-  A-->>B;
+主存-->>CPU高速缓存:读取i的值到CPU缓存
+CPU高速缓存-->>CPU:cpu从高速缓存中获取i的值
+CPU-->>CPU:计算i+1
+CPU-->>CPU高速缓存:结果写到cpu高速缓存
+CPU高速缓存-->>主存:结果写到主存
 ```
 
 ### Synchronized 关键字
