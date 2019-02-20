@@ -130,11 +130,10 @@ CPU-->>CPU:计算i+1
 CPU-->>CPU高速缓存:结果写到cpu高速缓存
 CPU高速缓存-->>主存:结果写到主存
 ```
+
+
 ```seq
-A-->B:abc
-A-->C:bcd
-B-->D:def
-C-->D:efg
+Alice->Bob: Hello Bob, how are you?
 ```
 
 ### Synchronized 关键字
