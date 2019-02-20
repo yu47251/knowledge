@@ -125,10 +125,7 @@ doSomethingwithconfig(context);
 以i = i + 1为例：下图为不加volatile关键字的执行逻辑，此逻辑在多线程环境中，会存在一定的问题。比如多个线程读取的时候都读取的是i，但是写的时候也就都写得是i+1。并没有达到预期的效果。
 ```mermind
 graph TD;
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
+  A-->>B;
 ```
 
 ### Synchronized 关键字
