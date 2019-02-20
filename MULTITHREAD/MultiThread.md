@@ -122,18 +122,44 @@ doSomethingwithconfig(context);
 - 保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的。
 - 禁止进行指令重排序。
 #### volatile原理
+
+下面这段话摘自《深入理解Java虚拟机》：
+
+“观察加入volatile关键字和没有加入volatile关键字时所生成的汇编代码发现，加入volatile关键字时，会多出一个lock前缀指令”
+
+lock前缀指令实际上相当于一个内存屏障（也成内存栅栏），内存屏障会提供3个功能：
+
+- 它确保指令重排序时不会把其后面的指令排到内存屏障之前的位置，也不会把前面的指令排到内存屏障的后面；即在执行到内存屏障这句指令时，在它前面的操作已经全部完成；
+
+- 它会强制将对缓存的修改操作立即写入主存；
+
+- 如果是写操作，它会导致其他CPU中对应的缓存行无效。
+
 以i = i + 1为例：下图为不加volatile关键字的执行逻辑，此逻辑在多线程环境中，会存在一定的问题。比如多个线程读取的时候都读取的是i，但是写的时候也就都写得是i+1。并没有达到预期的效果。
 
 ```mermaid
 sequenceDiagram
-participant a as 主存
-participant b as CPU告诉缓存
-participant c as CPU
+participant a as jvm主内存
+participant b as 线程工作内存
+participant c as CPU高速缓存
+participant d as CPU
 
-a-->>b:读取i的值到CPU缓存
-b-->>c:cpu从高速缓存中获取i的值
-c-->>c:计算i+1
-c-->>b:结果写到cpu高速缓存
+a-->>b:从主存复制数据i到当前线程工程内存
+b-->>c:从工作内存读取到cpu高速缓存
+c-->>d:cpu读取高速缓存
+d-->>d:cpu计算i+1
+d-->>c:结果写到高速缓存
+c-->>b:结果写到工作内存
 b-->>a:结果写到主存
 ```
+就算加了volatile修饰i以后，省去了CPU高速缓存（Intel的MESI协议）以及工作内存的写过程，直接进行住内存的写，也不能保证完全没有问题。原因有以下两点：
+- volatile只是解决了可见性以及禁止指令重排的问题，并没有保证原子性。 因为i = i + 1, 这个过程不是原子性的。
+- 保证可见性的结果是可以读到，但是下面这种情况无法避免：线程1读取i，未进行+1操作，此时线程2读取，读到的还是为修改的i，此时线程1进行+1，再写回去，接下来就是线程2也是+1，写回去。此种情况是无法避免的。
+
+为了解决上面的这个问题可以选择i加volatile的同时，再加上i的类型改为AtomicInteger，再使用AtomicInteger的原子性的自增方法来确保线程安全。
+
+也可以选择使用Synchronized + volatile关键字来确保线程安全。可以参考设计模式中的[单例模式（双check模式）](https://github.com/WaitingAloneU/knowledge/blob/master/DESIGN/Design.md).
+
+
+
 ### Synchronized 关键字
