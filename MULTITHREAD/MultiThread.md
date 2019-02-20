@@ -131,11 +131,10 @@ CPU-->>CPU高速缓存:结果写到cpu高速缓存
 CPU高速缓存-->>主存:结果写到主存
 ```
 ```seq
-graph TD;
-A-->B;
-A-->C;
-B-->D;
-C-->D;
+A-->B:abc;
+A-->C:bcd;
+B-->D:def;
+C-->D:efg;
 ```
 
 ### Synchronized 关键字
