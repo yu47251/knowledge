@@ -132,7 +132,7 @@ CPU高速缓存-->>主存:结果写到主存
 ```
 
 
-```sequence
+```sequenceDiagram
 participant Alice
 participant Bob
 
