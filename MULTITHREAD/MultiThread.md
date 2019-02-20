@@ -133,6 +133,9 @@ CPU高速缓存-->>主存:结果写到主存
 
 
 ```sequence
+participant Alice
+participant Bob
+
 Alice->Bob: Hello Bob, how are you?
 ```
 
