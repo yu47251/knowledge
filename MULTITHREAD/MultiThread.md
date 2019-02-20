@@ -132,7 +132,7 @@ CPU高速缓存-->>主存:结果写到主存
 ```
 
 
-```seq
+```sequence
 Alice->Bob: Hello Bob, how are you?
 ```
 
