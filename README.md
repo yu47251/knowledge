@@ -32,7 +32,7 @@
 
 - [RABBITMQ](https://github.com/WaitingAloneU/knowledge/blob/master/RABBITMQ/RabbitMQ.md "JWT相关知识点")
 
-- [数据结构(ArrayList, LinkedList, vector)](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
+- [数据结构(ArrayList, LinkedList, vector, hashmap, concurrenthashmap)](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
 
 - [多线程编程(线程池，volatile，synchronized)](https://github.com/WaitingAloneU/knowledge/blob/master/MULTITHREAD/MultiThread.md "多线程相关知识点")
 
