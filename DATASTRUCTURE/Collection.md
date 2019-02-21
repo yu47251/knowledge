@@ -111,8 +111,59 @@ graph TD
  HashTable --> Properties
 ```
 ### HashMap 实现过程
+#### JDK7
+- HashMap 里面是一个数组，数组中每个元素是一个单向链表。
+- 数组的每一个元素跟链表中的每一个节点都是一个Entry，包含四个属性，key，value，hash，next
+```
+key: map的key值
+value：map的value值
+hash：
+next：链表中指向下一个节点
+```
+- capacity：当前数组容量，始终保持 2^n，可以扩容，扩容后数组大小为当前的 2 倍，最小值是8，
+- loadFactor：负载因子，默认为 0.75。
+- threshold：扩容的阈值，等于 capacity * loadFactor
+```
+例如：
+当放入的元素在数组中的下表超过 6(8 * 0.75)时，那么就会触发扩容，扩容后，数组大小为原来的 2 倍16。
+```
+- put时，定位当前元素应该放在数组中的哪个元素，即计算下标
+```java
+static int indexFor(int hash, int length) {
+ // 直接以取模的方式，用hash值与数组长度-1进行取模
+ return hash & (length-1);
+}
+```
+- 扩容的方式：用新的数组代替原有的数组，把原有的数组中所有的元素放入新的数组中。
+```
+由于是双倍扩容，迁移过程中，会将原来 table[i] 中的链表的所有节点，分拆到新的数组的 newTable[i] 和 newTable[i + oldLength] 位置上。如原来数组长度是 16，那么扩容后，原来 table[0] 处的链表中的所有元素会被分配到新数组中 newTable[0] 和 newTable[16] 这两个位置。代码比较简单，这里就不展开了。
+```
+- get
+```
+1. 根据 key 计算 hash 值。
+2. 找到相应的数组下标：hash & (length - 1)。
+3. 遍历该数组位置处的链表，直到找到相等(==或equals)的 key。
+```
+#### JDK& ConcurrentMap
+- 构造函数
+```java
+public ConcurrentHashMap(int initialCapacity, float loadFactor, int concurrencyLevel)
+1. initialCapacity：整个的ConcurrentHashMap的总长度，要平均分配给所有的Segment
+2. loadFactor：负载因子，0.75
+3. concurrencyLevel: Segment数量，最好是多少个并发数，就填多少，不会被扩容。
 
+public ConcurrentHashMap()
+1. Segment 数组长度为 16，不可以扩容
+2. Segment[i] 的默认大小为 2，负载因子是 0.75，得出初始阈值为 1.5，也就是以后插入第一个元素不会触发扩容，插入第二个会进行第一次扩容
+3. 这里初始化了 segment[0]，其他位置还是 null，至于为什么要初始化 segment[0]，后面的代码会介绍
+4. 当前 segmentShift 的值为 32 - 4 = 28，segmentMask 为 16 - 1 = 15，姑且把它们简单翻译为移位数和掩码，这两个值马上就会用到
+```
+- 第一层为segment数组
+- 第二层，每一个segement都是数组加链表实现的。
+- put过程
+```java
 
+```
 ### 其他类结构图
 ```mermaid
 graph TD

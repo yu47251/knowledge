@@ -2,10 +2,6 @@
 
 - [JVM(GC，内存模型)](https://github.com/WaitingAloneU/knowledge/blob/master/JVM/JVM.md "jvm相关知识点")
 
-- [DATASTRUCTURE(ArrayList, LinkedList, vector)](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
-
-- [MULTITHREAD(线程池，volitale，synchronized)](https://github.com/WaitingAloneU/knowledge/blob/master/MULTITHREAD/MultiThread.md "多线程相关知识点")
-
 - [I/O](https://github.com/WaitingAloneU/knowledge/blob/master/IO/IO.md "I/O相关知识点")
 
 - [MAVEN](https://github.com/WaitingAloneU/knowledge/blob/master/MAVEN/Maven.md "Maven相关知识点")
@@ -13,8 +9,6 @@
 - [DOCKER](https://github.com/WaitingAloneU/knowledge/blob/master/DOCKER/Docker.md "Docker相关知识点")
 
 - [LINUX](https://github.com/WaitingAloneU/knowledge/blob/master/LINUX/CentOS7.md "CentOS7相关知识点")
-
-- [DESIGN PATTERN(设计原则，单例)](https://github.com/WaitingAloneU/knowledge/blob/master/DESIGN/Design.md "Design Pattern相关知识点")
 
 - [MONGODB](https://github.com/WaitingAloneU/knowledge/blob/master/MONGODB/MongoDB.md "MongoDB相关知识点")
 
@@ -34,12 +28,18 @@
 
 - [KAFKA](https://github.com/WaitingAloneU/knowledge/blob/master/KAFKA/Kafka.md "KAFKA相关知识点")
 
+- [SPRING-CLOUD](https://github.com/WaitingAloneU/knowledge/blob/master/SPRINGCLOUD/springcloud.md "springcloud相关知识点")
+
 - [RABBITMQ](https://github.com/WaitingAloneU/knowledge/blob/master/RABBITMQ/RabbitMQ.md "JWT相关知识点")
+
+- [数据结构(ArrayList, LinkedList, vector)](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
+
+- [多线程编程(线程池，volatile，synchronized)](https://github.com/WaitingAloneU/knowledge/blob/master/MULTITHREAD/MultiThread.md "多线程相关知识点")
+
+- [设计模式(设计原则，单例)](https://github.com/WaitingAloneU/knowledge/blob/master/DESIGN/Design.md "Design Pattern相关知识点")
 
 - [支付宝](https://github.com/WaitingAloneU/knowledge/blob/master/ALIPAY/AliPay.md "支付宝相关知识点")
 
 - [微信](https://github.com/WaitingAloneU/knowledge/blob/master/WECHAT/WeChat.md "微信相关知识点")
 
 - [阿里云](https://github.com/WaitingAloneU/knowledge/blob/master/ALIYUN/AliYun.md "阿里云相关知识点")
-
-- [SPRING-CLOUD](https://github.com/WaitingAloneU/knowledge/blob/master/SPRINGCLOUD/springcloud.md "springcloud相关知识点")

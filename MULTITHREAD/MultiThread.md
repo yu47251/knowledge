@@ -160,6 +160,8 @@ b-->>a:结果写到主存
 
 也可以选择使用Synchronized + volatile关键字来确保线程安全。可以参考设计模式中的[单例模式（双check模式）](https://github.com/WaitingAloneU/knowledge/blob/master/DESIGN/Design.md).
 
+此文章需要读很多遍，反复的读，好文章记录一下：
+http://www.cnblogs.com/dolphin0520/p/3920373.html
 
 
 ### Synchronized 关键字
