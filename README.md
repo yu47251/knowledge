@@ -32,6 +32,8 @@
 
 - [RABBITMQ(简单安装，spring-boot集成)](https://github.com/WaitingAloneU/knowledge/blob/master/RABBITMQ/RabbitMQ.md "RABBITMQ相关知识点")
 
+- [WEBSERVICE](https://github.com/WaitingAloneU/knowledge/blob/master/WEBSERVICE/webservice.md "WEBSERVICE相关知识点") 
+
 - [数据结构(ArrayList, LinkedList, Vector, HashMap, ConcurrentHashMap)](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
 
 - [多线程编程(线程池，volatile，synchronized)](https://github.com/WaitingAloneU/knowledge/blob/master/MULTITHREAD/MultiThread.md "多线程相关知识点")
@@ -43,3 +45,5 @@
 - [微信](https://github.com/WaitingAloneU/knowledge/blob/master/WECHAT/WeChat.md "微信相关知识点")
 
 - [阿里云](https://github.com/WaitingAloneU/knowledge/blob/master/ALIYUN/AliYun.md "阿里云相关知识点")
+
+- [其他(单点登陆)](https://github.com/WaitingAloneU/knowledge/blob/master/OTHER/other.md "其他相关知识点") 
