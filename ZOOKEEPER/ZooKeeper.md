@@ -1,14 +1,17 @@
 # Zookeeper
 
 ## 1. Zookeeper 安装
-
+### 下载
+```
+wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.5.4-beta/zookeeper-3.5.4-beta.tar.gz
+```
 ### 解压
 ```
-sudo tar -zxvf zookeeper-3.4.8.tar.gz
+sudo tar -zxvf zookeeper-3.5.4.tar.gz
 ```
 ### 目录重命名
 ```
-sudo mv zookeeper-3.4.8 zookeeper
+sudo mv zookeeper-3.5.4 zookeeper
 ```
 ### 加组和用户
 ```
@@ -76,7 +79,126 @@ java.lang.RuntimeException: My id 4 not in the peer list
 - EPHEMERAL_SEQUENTIAL: zookeeper给该类型的节点进行顺序编号,临时目录节点, 在zookeeper连接断开后, 节点数据删除.
 
 ### 2.2 连接
-每一个client都是以长连接的方式连接Zookeeper Server
+每一个client都是以长连接的方式连接Server.
 
-## zookeeper 机制
-### 选举机制
+### 2.3 选举
+
+### 2.4 顺序一致性
+
+## 3. 命令
+
+## 4. spring集成zookeeper
+- 注意: spring依赖curator, curator对zookeeperClient进行封装. curator的jar包4.0以上版本需要zookeeper3.5的版本. curator4.0版本对应的zookeeper3.5以下.
+- 以下代码中均是以zookeeper3.5为演示. 目前(2019-03-13)zookeeper3.5为beta版本, 请慎用.
+### 4.1 spring-boot集成zookeeper
+### 4.2 spring-cloud集成zookeeper作为服务注册中心
+### 4.3 spring-cloud集成zookeeper作为配置管理
+- 实现服务配置集中管理, zkUI修改properties, 可以直接生效.
+#### 4.3.1 pom.xml配置文件
+```xml
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zookeeper-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+```
+#### 4.3.2 bootstrap.yml配置文件
+```yml
+spring:
+  application:
+    name: order-service
+  cloud:
+    zookeeper:
+      connect-string: 192.168.56.102:2181,192.168.56.103:2181,192.168.56.104:2181
+      // 最大重试次数
+      max-retries: 10
+      // 最大sleep时间
+      max-sleep-ms: 50
+      block-until-connected-wait: 500
+      block-until-connected-unit: milliseconds
+      // 设置使用zookeeper
+      enabled: true
+      // 服务发现相关配置
+      discovery:
+        // 是否启用zookeeper作为服务发现
+        enabled: true
+        // 是否启用zookeeper作为服务注册
+        register: true
+        // 注册后当前实例的服务访问IP
+        instance-host: 192.168.56.1
+        // 注册后当前实例的服务访问端口
+        instance-port: ${server.port}
+        root: services
+      // 基于zookeeper的配置管理配置项, 
+      // 按.提示没有, 需要找类ZookeeperConfigProperties,按照类中的属性,进行设置
+      config:
+        // 自定义配置管理在zookeeper中的路径
+        root: /configuration
+        enabled: true
+        // 启动zookeeper配置中心监听, 修改会有event
+        watcher:
+          enabled: true
+    // 使 cloud 中的默认config服务失效, 默认是生效, 调用本地的8888端口的config服务      
+    config:
+      enabled: false
+```
+#### 4.3.3 java代码
+- 启动类
+```java
+@EnableDiscoveryClient
+@SpringBootApplication
+public class OrderServiceApplication {
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(OrderServiceApplication.class)
+                .web(WebApplicationType.SERVLET).run(args);
+    }
+}
+```
+- 服务实现
+```java
+/**
+ * zookeeper配置中心加载
+ */
+@RefreshScope
+@Service
+public class OrderServiceImpl implements OrderService {
+    // zookeeper中修改foo的value, 可以及时生效, @RefreshScope
+    @Value("${foo}")
+    private String remark;
+
+    @Override
+    public Order getInfo(){
+        Order order = new Order();
+        order.setRemark(remark);
+        return order;
+    }
+}
+```
