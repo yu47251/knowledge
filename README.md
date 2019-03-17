@@ -12,7 +12,7 @@
 
 - [MONGODB](https://github.com/WaitingAloneU/knowledge/blob/master/MONGODB/MongoDB.md "MongoDB相关知识点")
 
-- [REDIS](https://github.com/WaitingAloneU/knowledge/blob/master/REDIS/Redis.md "Redis相关知识点")
+- [REDIS(分布式锁)](https://github.com/WaitingAloneU/knowledge/blob/master/REDIS/Redis.md "Redis相关知识点")
 
 - [MYSQL(索引原理，锁，事务隔离级别，事务特性，SQL优化，EXPLAIN)](https://github.com/WaitingAloneU/knowledge/blob/master/MYSQL/MySQL.md "MYSQL相关知识点")
 
@@ -24,7 +24,7 @@
 
 - [JWT](https://github.com/WaitingAloneU/knowledge/blob/master/JWT/jwt.md "JWT相关知识点")
 
-- [ZOOKEEPER](https://github.com/WaitingAloneU/knowledge/blob/master/ZOOKEEPER/ZooKeeper.md "ZooKeeper相关知识点")
+- [ZOOKEEPER(安装,集群,配置中心,注册中心)](https://github.com/WaitingAloneU/knowledge/blob/master/ZOOKEEPER/ZooKeeper.md "ZooKeeper相关知识点")
 
 - [KAFKA](https://github.com/WaitingAloneU/knowledge/blob/master/KAFKA/Kafka.md "KAFKA相关知识点")
 
