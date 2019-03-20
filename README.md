@@ -30,7 +30,7 @@
 
 - [SPRING-CLOUD](https://github.com/WaitingAloneU/knowledge/blob/master/SPRINGCLOUD/spring-cloud.md "springcloud相关知识点")
 
-- [RABBITMQ(简单安装，spring-boot集成)](https://github.com/WaitingAloneU/knowledge/blob/master/RABBITMQ/RabbitMQ.md "RABBITMQ相关知识点")
+- [RABBITMQ(简单安装，spring-boot集成, 延迟消息)](https://github.com/WaitingAloneU/knowledge/blob/master/RABBITMQ/RabbitMQ.md "RABBITMQ相关知识点")
 
 - [WEBSERVICE](https://github.com/WaitingAloneU/knowledge/blob/master/WEBSERVICE/webservice.md "WEBSERVICE相关知识点") 
 
