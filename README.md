@@ -28,7 +28,7 @@
 
 - [KAFKA](https://github.com/WaitingAloneU/knowledge/blob/master/KAFKA/Kafka.md "KAFKA相关知识点")
 
-- [SPRING-CLOUD](https://github.com/WaitingAloneU/knowledge/blob/master/SPRINGCLOUD/springcloud.md "springcloud相关知识点")
+- [SPRING-CLOUD](https://github.com/WaitingAloneU/knowledge/blob/master/SPRINGCLOUD/spring-cloud.md "springcloud相关知识点")
 
 - [RABBITMQ(简单安装，spring-boot集成)](https://github.com/WaitingAloneU/knowledge/blob/master/RABBITMQ/RabbitMQ.md "RABBITMQ相关知识点")
 
@@ -45,5 +45,7 @@
 - [微信](https://github.com/WaitingAloneU/knowledge/blob/master/WECHAT/WeChat.md "微信相关知识点")
 
 - [阿里云](https://github.com/WaitingAloneU/knowledge/blob/master/ALIYUN/AliYun.md "阿里云相关知识点")
+
+- [算法](https://github.com/WaitingAloneU/knowledge/blob/master/ALGORITHM/algorithm.md "算法相关知识点")
 
 - [其他(单点登陆)](https://github.com/WaitingAloneU/knowledge/blob/master/OTHER/other.md "其他相关知识点") 
