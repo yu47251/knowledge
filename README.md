@@ -48,4 +48,4 @@
 
 - [算法](https://github.com/WaitingAloneU/knowledge/blob/master/ALGORITHM/algorithm.md "算法相关知识点")
 
-- [其他(单点登陆)](https://github.com/WaitingAloneU/knowledge/blob/master/OTHER/other.md "其他相关知识点") 
+- [其他(单点登陆,一致性哈希)](https://github.com/WaitingAloneU/knowledge/blob/master/OTHER/other.md "其他相关知识点") 

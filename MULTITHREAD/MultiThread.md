@@ -158,10 +158,19 @@ b-->>a:结果写到主存
 
 为了解决上面的这个问题可以选择i加volatile的同时，再加上i的类型改为AtomicInteger，再使用AtomicInteger的原子性的自增方法来确保线程安全。
 
-也可以选择使用Synchronized + volatile关键字来确保线程安全。可以参考设计模式中的[单例模式（双check模式）](https://github.com/WaitingAloneU/knowledge/blob/master/DESIGN/Design.md).
+可以参考设计模式中的[单例模式（双check模式）](https://github.com/WaitingAloneU/knowledge/blob/master/DESIGN/Design.md).
 
 此文章需要读很多遍，反复的读，好文章记录一下：
 http://www.cnblogs.com/dolphin0520/p/3920373.html
 
 
 ### Synchronized 关键字
+- 修饰方法
+- 修饰静态方法
+- 修饰代码块
+### 锁
+#### ReentrantLock
+#### ReadLock
+#### WriteLock
+
+## Callable & Future
