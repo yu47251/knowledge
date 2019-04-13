@@ -34,6 +34,8 @@
 
 - [WEBSERVICE](https://github.com/WaitingAloneU/knowledge/blob/master/WEBSERVICE/webservice.md "WEBSERVICE相关知识点") 
 
+- [REST API](https://github.com/WaitingAloneU/knowledge/blob/master/REST/restfull.md "restfull相关知识点") 
+
 - [数据结构(ArrayList, LinkedList, Vector, HashMap, ConcurrentHashMap)](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
 
 - [多线程编程(线程池，volatile，synchronized)](https://github.com/WaitingAloneU/knowledge/blob/master/MULTITHREAD/MultiThread.md "多线程相关知识点")

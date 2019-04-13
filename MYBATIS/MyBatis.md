@@ -11,20 +11,14 @@
   <resultMap id="BaseResultMap" type="jtpf.ins.svc.entity.TProductMd" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="product_code" property="productCode" jdbcType="VARCHAR" />
-    <result column="product_name" property="productName" jdbcType="VARCHAR" />
-    <result column="product_type" property="productType" jdbcType="VARCHAR" />
+    ...
     <result column="channel_code" property="channelCode" jdbcType="VARCHAR" />
   </resultMap>
 
   <resultMap id="ResultMapWithEntry" type="jtpf.ins.svc.entity.vo.TestVO" extends="BaseResultMap">
     <collection property="entrys" ofType="jtpf.ins.svc.entity.TBizEntryDef">
       <id column="bed_id" property="id" jdbcType="INTEGER" />
-      <result column="entry_code" property="entryCode" jdbcType="VARCHAR" />
-      <result column="entry_name" property="entryName" jdbcType="VARCHAR" />
-      <result column="entry_desc" property="entryDesc" jdbcType="VARCHAR" />
-      <result column="channel_code" property="channelCode" jdbcType="VARCHAR" />
-      <result column="channel_name" property="channelName" jdbcType="VARCHAR" />
-      <result column="project_code" property="projectCode" jdbcType="VARCHAR" />
+      ...
       <result column="project_name" property="projectName" jdbcType="VARCHAR" />
     </collection>
   </resultMap>
@@ -32,18 +26,7 @@
   <select id="selectProductWithList" resultMap="ResultMapWithEntry">
     SELECT
         pm.id,
-        pm.product_code,
-        pm.product_name,
-        pm.product_name,
-        pm.product_type,
-        pm.channel_code,
-        bed.id AS bed_id,
-        bed.entry_code,
-        bed.entry_name,
-        bed.entry_desc,
-        bed.channel_code,
-        bed.channel_name,
-        bed.project_code,
+        ...
         bed.project_name 
     FROM
         t_product_md pm
