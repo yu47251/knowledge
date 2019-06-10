@@ -8,6 +8,8 @@
 
 - [DOCKER](https://github.com/WaitingAloneU/knowledge/blob/master/DOCKER/Docker.md "Docker相关知识点")
 
+- [KUBERNETES](https://github.com/WaitingAloneU/knowledge/blob/master/KUBERNETES/k8s.md "KUBERNETES相关知识点")
+
 - [LINUX](https://github.com/WaitingAloneU/knowledge/blob/master/LINUX/CentOS7.md "CentOS7相关知识点")
 
 - [MONGODB](https://github.com/WaitingAloneU/knowledge/blob/master/MONGODB/MongoDB.md "MongoDB相关知识点")
