@@ -220,3 +220,8 @@ Thread[Thread-0,5,main] start
 Thread[Thread-1,5,main] start
 Thread[Thread-0,5,main]init DeadLoopClass
 ```
+
+## 4. 排查jvm问题工具
+### 4.1 jmap
+
+/jmap -histo:live 1
