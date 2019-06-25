@@ -24,7 +24,7 @@ kubectl describe node ${node_name}
 ### 删除pod
 ```
 kubectl delete po ${pod_name} -n ${namespace} --grace-period=0 --force
-eg: kubectl delete po dex-svc-66474695c4-rbl9d -n jtpf-dev --grace-period=0 --force
+eg: kubectl delete po ins-batch-5787bccb97-74fjg -n jtpf-dev --grace-period=0 --force
 ```
 
 ### 删除所有驱赶失败的pod
