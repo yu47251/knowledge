@@ -8,7 +8,7 @@
 ## ab压力测试命令
 - ab
 ```
-ab -n 5 -c 1 -p ins-list-sequip.json -T 'application/json' http://gw-sequip-dev.jiangtai.com/ins-svc/applicationforms/sequip
+ab -n 5 -c 1 http://gw.jiangtai.com/prod-svc/api/v1/attr/19PR357306/tour
 ```
 
 

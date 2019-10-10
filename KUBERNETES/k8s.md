@@ -24,13 +24,13 @@ kubectl describe node ${node_name}
 ### 删除pod
 ```
 kubectl delete po ${pod_name} -n ${namespace} --grace-period=0 --force
-eg: kubectl delete po ins-batch-5787bccb97-74fjg -n jtpf-dev --grace-period=0 --force
+eg: kubectl delete po ins-order-7f7ccdf59c-2f4b8 -n tour-test --grace-period=0 --force
 ```
 
 ### 删除所有驱赶失败的pod
 ```
 kubectl get po  -n ${namespace} | grep Evicted | awk '{print $1}' | xargs kubectl delete po -n ${namespace}
-eg: kubectl get po  -n jtpf-pre | grep Evicted | awk '{print $1}' | xargs kubectl delete po -n jtpf-pre --grace-period=0 --force
+eg: kubectl get po  -n jtpf-test | grep Evicted | awk '{print $1}' | xargs kubectl delete po -n jtpf-test --grace-period=0 --force
 ```
 
 ### 查看所有pod的网络IP是多少
@@ -55,6 +55,3 @@ eg: kubectl exec -t ins-svc-95b5879fd-d5t9p -- curl -I 10.244.9.142
 ### 只启动一个容器, 但是swagger会有两种结果
 - 现象: 多次请求, 返回的swagger页面的结果不一样
 - 最后定位原因: work1机器有问题, 虽然pod删除了, 但是eureka中的服务依然在, 而且还能访问. 联系运维, 机器重启了一下就好了. 
-
-
-
