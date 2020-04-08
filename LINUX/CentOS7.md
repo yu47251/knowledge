@@ -4,17 +4,21 @@
 
 - htop
 - rz
+```
+获取文件, 从linux以外往linux发送文件
+```
+- sz
+```
+发送文件, 从linux机器往外发送
+```
+- pwgen
+```
+例: pwgen -c -n 10 -y
+生成一个10位数字的密码, -y:包含最少一个特殊字符, -c:至少包含一个大写字母, -n:至少包含一个数字
+```
 
 ## ab压力测试命令
 - ab
 ```
 ab -n 5 -c 1 http://gw.jiangtai.com/prod-svc/api/v1/attr/19PR357306/tour
-```
-
-
-
-
-
-```
-git log  --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat:  --since ==2019-3-24 --until=2019-4-24 --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
 ```

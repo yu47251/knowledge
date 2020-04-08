@@ -24,3 +24,15 @@ public class EurekaServerApplication {
 }
 
 ```
+
+## eureka 使用问题
+
+### ip问题
+spring cloud 2.0版本, 在注册eureka的时候instance通过spring.cloud.client.ip-address/ipAddress, 找不到本机的IP
+解决方案: 增加pom依赖
+```
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-commons</artifactId>
+</dependency>
+```

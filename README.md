@@ -40,7 +40,13 @@
 
 - [JSON](https://github.com/WaitingAloneU/knowledge/blob/master/JSON/json.md "json相关知识点") 
 
-- [ELASTICSEARCH](https://github.com/WaitingAloneU/knowledge/blob/master/JSON/elasticsearch.md "ES相关知识点") 
+- [ELASTICSEARCH](https://github.com/WaitingAloneU/knowledge/blob/master/ELASTICSEARCH/elasticsearch.md "ES相关知识点") 
+
+- [GIT](https://github.com/WaitingAloneU/knowledge/blob/master/GIT/git.md "git命令相关知识点") 
+
+- [GITBOOK](https://github.com/WaitingAloneU/knowledge/blob/master/GITBOOK/gitbook.md "gitbook相关知识点") 
+
+- [ORACLE](https://github.com/WaitingAloneU/knowledge/blob/master/ORACLE/oracle.md "gitbook相关知识点") 
 
 - [数据结构(ArrayList, LinkedList, Vector, HashMap, ConcurrentHashMap)](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
 

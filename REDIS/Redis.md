@@ -2,6 +2,9 @@
 
 ## Redis基础命令
 
+### redis client 连接redis server
+
+
 
 ## Redis 简单消息队列实现
 ### 双向链表实现
