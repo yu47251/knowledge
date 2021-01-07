@@ -46,7 +46,13 @@
 
 - [GITBOOK](https://github.com/WaitingAloneU/knowledge/blob/master/GITBOOK/gitbook.md "gitbook相关知识点") 
 
-- [ORACLE](https://github.com/WaitingAloneU/knowledge/blob/master/ORACLE/oracle.md "gitbook相关知识点") 
+- [ORACLE](https://github.com/WaitingAloneU/knowledge/blob/master/ORACLE/oracle.md "oracle相关知识点") 
+
+- [FTP](https://github.com/WaitingAloneU/knowledge/blob/master/FTP/ftp.md "ftp相关知识点") 
+
+- [JUNIT](https://github.com/WaitingAloneU/knowledge/blob/master/JUNIT/junit.md "JUNIT相关知识点") 
+
+- [NGINX](https://github.com/WaitingAloneU/knowledge/blob/master/NGINX/nginx.md "nginx相关知识点") 
 
 - [数据结构(ArrayList, LinkedList, Vector, HashMap, ConcurrentHashMap)](https://github.com/WaitingAloneU/knowledge/blob/master/DATASTRUCTURE/DataStructure.md "数据结构相关知识点")
 

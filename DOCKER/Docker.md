@@ -20,3 +20,8 @@ docker run -it -d -p 5044:5044 --name logstash -v /data/app/logstash/logstash.ym
 docker run --name elastic/kibana -e ELASTICSEARCH_URL=http://10.10.32.219:9400 -p 5601:5601 -d elastic/kibana:6.3.2
 ```
 
+### docker 启动rabbitmq
+```
+docker run -d --hostname my-rabbit --name rabbit -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin -p 15672:15672 -p 5672:5672 rabbitmq
+```
+

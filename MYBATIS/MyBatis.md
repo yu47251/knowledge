@@ -2,8 +2,10 @@
 
 在开发过程中，遇到了1对多的情况，进行级联查询并封装，代码记录：
 
+## 继承关系
+
 一个TProductMd对应多个TBizEntryDef
-## mapper的写法
+### mapper的写法
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
@@ -37,7 +39,7 @@
   </select>
 </mapper>
 ```
-## 实体类的结构
+### 实体类的结构
 - vo采用lombok的方式初始化get，set方法；对应DB的实体，使用generator生成的实体类
 ```java
 @Data

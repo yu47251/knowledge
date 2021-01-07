@@ -94,4 +94,10 @@ public class Singleton{
 ## 接口隔离原则
 ## 迪米特原则
 
+# 设计注意事项
+
+- 生日字段用字符串存放, 不要用date类型
+- 数据库编码要用utf8mb4, 生僻字, emoji等在utf8中无法存放
+
+
 # 领域驱动设计(DDD:Domain-Driven Design)

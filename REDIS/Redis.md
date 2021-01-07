@@ -4,6 +4,13 @@
 
 ### redis client 连接redis server
 
+- redis-cli 
+    - -h host // 地址
+    - -p port // 端口
+    - -a password // 密码, 如果密码中带特殊符号, 需要在两端加上单引号
+```
+redis-cli -h 172.24.128.5 -p 6379 -a 'crs-95idx3hg:JTdevTEST(!13)8E'
+```
 
 
 ## Redis 简单消息队列实现
